@@ -1,0 +1,31 @@
+{
+	"_class" : "com.bouzga.entity.Pays",
+	"_id" : "1",
+	"nom" : "Maroc",
+	"villes" : [
+		{
+		"_id" : "1",
+		"nom" : "Oujda",
+		"population" : NumberInt(500000),
+		"departement" : "Est"
+	},
+		{
+		"_id" : "2",
+		"nom" : "Tanger",
+		"population" : NumberInt(1000000),
+		"departement" : "Nord"
+	},
+		{
+		"_id" : "3",
+		"nom" : "Rabat",
+		"population" : NumberInt(1500000),
+		"departement" : "Ouest"
+	},
+		{
+		"_id" : "4",
+		"nom" : "Agadir",
+		"population" : NumberInt(1200000),
+		"departement" : "Sud"
+	}
+	]
+},

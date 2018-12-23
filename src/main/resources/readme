@@ -1,0 +1,3 @@
+- Client MongoDB : NoSQLBooster
+-Commande pour importer une collection MongoDB : mongoimport --db my_db --collection pays --file d:\pays.json
+- importer une grande collection depuis : http://media.mongodb.org/zips.json
