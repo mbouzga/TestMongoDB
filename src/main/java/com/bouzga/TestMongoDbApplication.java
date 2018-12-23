@@ -63,14 +63,16 @@ public class TestMongoDbApplication implements CommandLineRunner {
 	
 
 	private void testPays(){
-		Ville oujda = new Ville("1", 500000, "Est");
-		Ville tanger = new Ville("2", 1000000, "Nord");
-		Ville rabat = new Ville("3", 1500000, "Ouest");
-		Ville agadir = new Ville("4", 1200000, "Sud");
+		paysRepository.deleteAll();
+		Ville oujda = new Ville("1","Oujda", 500000, "Est");
+		Ville tanger = new Ville("2","Tanger", 1000000, "Nord");
+		Ville rabat = new Ville("3","Rabat", 1500000, "Ouest");
+		Ville agadir = new Ville("4","Agadir", 1200000, "Sud");
 		List<Ville> villes = new ArrayList<>();
 		villes.add(oujda);villes.add(tanger);villes.add(rabat);villes.add(agadir);
 		
 		Pays maroc = new Pays("1", "Maroc", villes);
-		paysRepository.save(maroc);
+		Pays paysSaved = paysRepository.save(maroc);
+		System.out.println(paysSaved);
 	}
 }

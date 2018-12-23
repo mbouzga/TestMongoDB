@@ -43,4 +43,11 @@ public class Pays {
 		this.villes = villes;
 	}
 	
+	@Override
+    public String toString() {
+        return String.format(
+                "Pays_[id=%s, nom='%s', Villes_='%s']",
+                id, nom, villes);
+    }
+	
 }
