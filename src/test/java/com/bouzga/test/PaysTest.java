@@ -17,6 +17,7 @@ import com.bouzga.entity.Pays;
 import com.bouzga.entity.Ville;
 import com.bouzga.repository.PaysRepository;
 import com.mongodb.MongoClient;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
@@ -52,8 +53,22 @@ public class PaysTest extends TestMongoDbApplicationTests{
 	}
 	
 	@Test
+	public void deleteAll() {
+		paysRepo.deleteAll();
+	}
+	
+	@Test
 	public void savePays() {
-
+		System.out.println("--- SAVE PAYS ---");
+		Ville oujda = new Ville("1","Oujda", 500000, "Est");
+		Ville tanger = new Ville("2","Tanger", 1000000, "Nord");
+		Ville rabat = new Ville("3","Rabat", 1500000, "Ouest");
+		Ville agadir = new Ville("4","Agadir", 1200000, "Sud");
+		List<Ville> villes = new ArrayList<>();
+		villes.add(oujda);villes.add(tanger);villes.add(rabat);villes.add(agadir);
+		
+		Pays maroc = new Pays("1", "Maroc", villes);
+		paysRepo.save(maroc);
 	}
 
 	@Test
@@ -61,6 +76,8 @@ public class PaysTest extends TestMongoDbApplicationTests{
 		Bson critere = Filters.and(Filters.eq("_id","1"),Filters.eq("nom", "Maroc"));
 		Document pays = paysCollection.find(critere).first();
 		assertEquals(pays.get("nom"), "Maroc");
+
+		
 	}
 	
 	public MongoClient getMongoClient() {
