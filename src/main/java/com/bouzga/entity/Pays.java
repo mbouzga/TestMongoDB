@@ -3,15 +3,22 @@ package com.bouzga.entity;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class Pays {
 
 	@Id
 	private String id;
 	
 	private String nom;
+	
+	@DBRef
 	private List<Ville> villes;
 	
+	@PersistenceConstructor
 	public Pays(String id, String nom, List<Ville> villes) {
 		super();
 		this.id = id;

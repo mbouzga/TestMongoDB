@@ -1,7 +1,10 @@
 package com.bouzga.entity;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class Ville {
 
 	@Id
@@ -10,6 +13,7 @@ public class Ville {
 	private Integer population;
 	private String departement;
 	
+	@PersistenceConstructor
 	public Ville(String id, String nom, Integer population, String departement) {
 		super();
 		this.id = id;
